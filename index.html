@@ -13,15 +13,20 @@
 		<div class='jumbotron' id='jumbo'>
 			<div class='container'>
 				<div class='row'>
-					<div class='col-lg-12'>
+					<div class='col-xs-12'>
 						<h2>Conway's Game of Life</h2>
 						<hr>
 						<h5>
-							This is an interactive version of <a href='https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'>Conway's Game of Life</a>. Named for a British mathematician, John Horton Conway in 1970. The game posits a set of simple rules applied to a set of cells on a grid, after each "generation" the rules are applied and the inital pattern "evolves". This version uses Javascript to apply the rules and handle user input. It's all done as a single static webpage hosted github. Click a cell to toggle it's state and make your own seep pattern, or select one from the dropdown that will develop over the generations. Some seed patterns will ociliate, others reach a point of stablization, while some will seem like random noise. You can step a generation or let it run, the slider bar ajusts the speed. Note that the grid wraps, so that a pattern can move to the bottom or far right and re-appear at the top or far left.
+							This is an interactive version of <a href='https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'>Conway's Game of Life</a>. Named for a British mathematician, John Horton Conway in 1970. The game posits a set of simple rules applied to a set of cells on a grid, after each "generation" the rules are applied and the inital pattern "evolves". This version uses Javascript to apply the rules and handle user input. It's all done as a single static webpage hosted via Github, <a href='https://github.com/jasonlopez01/game_of_life'>code repo here</a>. Click a cell to toggle it's state and make your own seep pattern, or select one from the dropdown that will develop over the generations. Some seed patterns will ociliate while others will reach a point of stablization. You can step a generation or let it run, the slider bar ajusts the speed. Note that the grid wraps, so that a pattern can move to the bottom or far right and re-appear at the top or far left.
 						</h5>
-						<h4>
-							Jason Lopez
-						</h4>
+						<h6>
+							by Jason E. Lopez | 
+							<a href='mailto:jasonlopez01gmail.com?Subject=Hello%20(from%20your%20Game%20of%20Life%20site)' target='_top'>
+								<span class='glyphicon glyphicon-envelope' aria-hidden='true'></span>
+							</a>
+							|
+							<a href='https://www.linkedin.com/pub/jason-lopez/54/667/421'>LinkedIn</a>
+						</h6>
 					</div>
 				</div>
 			</div>
@@ -29,22 +34,55 @@
 
 		<div class='container'>
 			<div class='row' id='body_block'>
-				<div class='col-lg-12' id='center_block'>
+				<div class='col-xs-12'>
 					<div class='btn-group'>
-						  <button type="button" class="btn btn-default" id='gen_btn'><small>Step</small></button>
-						  <button type="button" class="btn btn-default" id='start_btn'><small>Start</small></button>
-						  <button type="button" class="btn btn-default" id='clear_btn'><small>Clear</small></button>
-						  <div class='btn-group'>
-						  	<a href='#' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
-						  		<small>Add a shape</small>
+						<button type="button" class="btn btn-default" id='gen_btn'><small>Step</small></button>
+						<button type="button" class="btn btn-default" id='start_btn'><small>Start</small></button>
+						<button type="button" class="btn btn-default" id='clear_btn'><small>Clear</small></button>
+						<!--Shapes LOV-->
+						<div class='btn-group'>
+							<a href='#' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
+								<small>Add a shape</small>
 						  		<span class='caret'></span>
 						  	</a>
-						  	<ul class='dropdown-menu'>
+						  	<ul class='dropdown-menu' id='shapesLOV'>
 						  		<!--game.js will add values here-->
 						  	</ul>
-						  </div>
+						</div>
+						<!-- Future - add edit dims form
+						<div class='btn-group'>
+							<a href='#' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
+								<small>Edit Dims</small>
+								<span class='caret'></span>
+							</a>
+							<ul class='dropdown-menu'>
+								<form class="form-horizontal">
+								  <fieldset>
+								    <div class="form-group">
+								      <label for="rows" class="col-xs-4 control-label">Rows</label>
+								      <div class="col-xs-12">
+								        <input type="number" class="form-control input-sm" id="inputRows" value=30 min="1" max"100" step="1" data-bind="value:replyNumber">
+								      </div>
+								    </div>
 
-						<div class='col-md-4'>
+								    <div class="form-group">
+								      <label for="cols" class="col-xs-4 control-label">Columns</label>
+								      <div class="col-xs-12">
+								        <input type="number" class="form-control input-sm" id="inputCols" value=50 min="1" max"100" step="1" data-bind="value:replyNumber">
+								      </div>
+								    </div>
+								    <div class="form-group">
+								      <div class="col-xs-12 col-xs-offset-1">
+								        <button type="reset" class="btn btn-default btn-xs">Cancel</button>
+								        <button type="submit" class="btn btn-primary btn-xs" id='submit_dims'>Submit</button>
+								      </div>
+								    </div>
+								  </fieldset>
+								</form>
+							</ul>	
+						</div>
+						-->
+						<div class='col-xs-4'>
 							<input type='range' id = 'speed' min='-1000' max='-100' value='-500' step='100'/>
 						</div>
 

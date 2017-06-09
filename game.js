@@ -1,8 +1,9 @@
-//edit dims submenu, on submit redraw table?
+//Future improvements: add edit dims button for grid size
 //re organize by creating create table function, seperate out calls.js from functions
+//call create board with dim parameters
 
-var row_len = 30;
-var col_len = 50;
+var row_len = 30
+var col_len = 50
 var cell_dim = 10;
 var gen_btn = document.getElementById('gen_btn')
 var start_btn = document.getElementById('start_btn')
@@ -12,7 +13,7 @@ var tbl = document.createElement('table');
 tbl.setAttribute('align', 'center')
 var row, cell, timer, speed
 
-// Create cell objects
+// Create cell objects and build game table
 for (var a = 0; a < row_len; a++){
 	row = tbl.insertRow()
     for (var b = 0; b < col_len; b++){
@@ -85,6 +86,7 @@ $('#speed').on('change', function(){
 	clearInterval(timer)
 	timer = null
 	timer = setInterval(run_gen, Math.abs($(this).val()))
+	$('#start_btn small').text('Stop')
 })
 
 //helper functions to output and set shapes
@@ -129,7 +131,7 @@ var shapes = {
 //programatically add shapes to LOV
 for(shape in shapes){
 	var item = $('<li><a>' + shape + '</a></li>')
-	$('.dropdown-menu').append(item)
+	$('#shapesLOV').append(item)
 }
 
 //call shape loading function on click
@@ -138,4 +140,4 @@ $('.dropdown-menu li a').click(function() {
 });
 
 //load inital shape
-$(document).ready(set_shape('Initial Shape'))
+$(document).ready(set_shape(shapes['Initial Shape']))
